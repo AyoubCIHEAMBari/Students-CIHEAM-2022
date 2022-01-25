@@ -1,0 +1,35 @@
+
+int LED = 12;
+int button = 14;
+int button_val;
+
+int pot = 33;
+int pot_val; 
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(LED, OUTPUT);
+  pinMode(button, INPUT_PULLUP);
+  pinMode(pot, INPUT);
+  Serial.begin(115200); 
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+button_val = digitalRead(button);
+pot_val = analogRead(pot);
+Serial.println(pot_val);
+
+
+  if (button_val == 0){
+    digitalWrite(LED, 1);
+    delay(200);
+    digitalWrite(LED, 0);
+    delay(200);
+  }
+
+  else{
+    digitalWrite(LED, 0);
+  }
+  
+}
